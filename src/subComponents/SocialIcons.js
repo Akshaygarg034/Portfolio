@@ -29,7 +29,7 @@ const SocialIcons = (props) => {
           style={{ color: "inherit" }}
           target="_blank"
           rel="noopener noreferrer"
-          href={"https://github.com/codebucks27"}
+          href={"github"}
         >
           <Github
             width={25}
@@ -44,7 +44,7 @@ const SocialIcons = (props) => {
           style={{ color: "inherit" }}
           target="_blank"
           rel="noopener noreferrer"
-          href={"https://twitter.com/code_bucks"}
+          href={"https://twitter.com/s"}
         >
           <Twitter
             width={25}
@@ -62,7 +62,7 @@ const SocialIcons = (props) => {
           style={{ color: "inherit" }}
           target="_blank"
           rel="noopener noreferrer"
-          href={"https://facebook.com/codebucks27"}
+          href={"https://facebook.com/"}
         >
           <Facebook
             width={25}
