@@ -38,6 +38,16 @@ const Rotate = styled.span`
   width: 80px;
   height: 80px;
   z-index: 1;
+
+  @media (max-width: 40em) {
+    width: 60px;
+    height: 60px;
+  }
+
+  @media (max-width: 25em) {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 // Framer-motion Configuration

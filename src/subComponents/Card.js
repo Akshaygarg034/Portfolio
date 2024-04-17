@@ -22,6 +22,31 @@ const Box = styled(motion.li)`
     color:${props => props.theme.text};
     border: 1px solid ${props => props.theme.text};
     }
+
+    @media (max-width: 50em) {
+        width: 16rem;
+        margin-right: 6rem;
+        height: 35vh;
+    }
+
+    @media (max-width: 40em) {
+        width: 14rem;
+        margin-right: 4rem;
+        height: 35vh;
+    }
+
+    @media (max-width: 25em) {
+        width: 12rem;
+        margin-right: 4rem;
+        height: 35vh;
+        padding: 1.5rem;
+    }
+
+    @media (max-width: 20em) {
+        width: 10rem;
+        margin-right: 4rem;
+        height: 40vh;
+    }
 `
 const Title = styled.h2`
     font-size: calc(1em + 0.5vw);
@@ -31,6 +56,14 @@ const Description = styled.h2`
     font-size: calc(0.8em + 0.3vw);
     font-family: 'Karla',sans-serif;
     font-weight: 500;
+
+    @media (max-width: 25em) {
+        font-size: calc(0.7em + 0.3vw);
+    }
+
+    @media (max-width: 20em) {
+        font-size: calc(0.6em + 0.3vw);
+    }
 `
 const Tags = styled.div`
     border-top: 2px solid ${props => props.theme.body};
@@ -44,6 +77,10 @@ const Tags = styled.div`
 const Tag = styled.span`
     margin-right:1rem;
     font-size:calc(0.8em + 0.3vw);
+
+    @media (max-width: 25em) {
+        font-size: calc(0.7em);
+    }
 `
 
 const Footer = styled.footer`

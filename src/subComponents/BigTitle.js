@@ -10,6 +10,10 @@ const Text = styled.h1`
     color:${props => `rgba(${props.theme.textRgba},0.1)`};
     font-size: calc(5rem + 5vw);
     z-index:0;
+
+    @media (max-width: 25em) {
+        left : 8%;
+    }
 `
 
 
