@@ -4,6 +4,10 @@ import { Anchor, Link } from '../components/AllSvgs'
 
 const Container = styled.div`
     position: relative;
+
+    @media (max-width: 40em) {
+        display: none;
+    }
 `
 const Slider = styled.div`
     position: fixed;
@@ -35,7 +39,7 @@ const AnchorComponent = (props) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            let scrollPosition = window.pageYOffset;
+            let scrollPosition = window.scrollY;
             let windowSize = window.innerHeight;
             let bodyHeight = document.body.offsetHeight;
 
@@ -51,7 +55,7 @@ const AnchorComponent = (props) => {
                 hiddenRef.current.style.display = 'block'
             }
         }
-        
+
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])

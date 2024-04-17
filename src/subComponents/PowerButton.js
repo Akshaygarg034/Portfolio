@@ -32,6 +32,11 @@ const Power = styled.button`
         text-decoration: none;
         color: inherit;
     }
+
+    @media (max-width: 40em) {
+        width: 2rem;
+        height: 2rem;
+    }
 `
 
 const PowerButton = () => {

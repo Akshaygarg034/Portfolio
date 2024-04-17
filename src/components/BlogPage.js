@@ -33,12 +33,20 @@ const Center = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 10rem;
+
+  @media (max-width: 30em) {
+    padding-top: 7rem;
+  }
 `
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
   grid-gap: calc(1rem + 2vw);
+
+  @media (max-width: 50em) {
+    grid-template-columns: 100%;
+  }
 `
 
 // Framer-motion config

@@ -26,6 +26,11 @@ const Box = styled.div`
     &>*:nth-child(5){
         animation-delay: 0.8s;
     }
+
+    @media (max-width: 40em) {
+        left: 1rem;
+        top: 10rem;
+    }
 `
 
 const play = keyframes`
@@ -47,7 +52,12 @@ const Line = styled.span`
     animation-play-state: ${props => props.click ? "running" : "paused"};
     height: 1rem;
     width: 2px;
-    margin:0 0.1rem
+    margin:0 0.1rem;
+
+    @media (max-width: 40em) {
+        height: 0.5rem;
+        width: 1px;
+    }
 `
 
 const SoundBar = () => {
