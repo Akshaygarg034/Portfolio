@@ -19,14 +19,13 @@ const ParticlesComponent = (props) => {
     await loadFull(main);
   };
 
-
   return (
     <Box>
       <Particles
         id="tsparticles"
         style={{ position: "absolute", top: 0 }}
         params={props.theme === "light" ? ConfigLight : ConfigDark}
-        init={particlesInit} 
+        init={particlesInit}
       />
     </Box>
   );

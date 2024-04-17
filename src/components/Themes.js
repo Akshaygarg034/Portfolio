@@ -1,5 +1,3 @@
-// Here we will create dark and light theme variables
-
 export const lightTheme = {
 
     body:"#FCF6F4",

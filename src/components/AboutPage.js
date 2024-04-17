@@ -1,12 +1,11 @@
 import React from 'react'
 import styled, { keyframes, ThemeProvider } from 'styled-components'
 import { DarkTheme } from './Themes';
-
 import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
 import PowerButton from '../subComponents/PowerButton';
 import ParticleComponent from '../subComponents/ParticleComponent';
-import BigTitle from '../subComponents/BigTitlte'
+import BigTitle from '../subComponents/BigTitle'
 import astronaut from '../assets/Images/spaceman.png'
 
 const Box = styled.div`
@@ -45,15 +44,13 @@ const Main = styled.div`
   justify-content: center;
   align-items: center;
   font-size: calc(0.6rem + 1vw);
- backdrop-filter: blur(4px);
-  
+  backdrop-filter: blur(4px);
   position: absolute;
   left: calc(5rem + 5vw);
   top: 10rem;
   font-family: 'Ubuntu Mono', monospace;
   font-style: italic;
 `
-
 
 
 
