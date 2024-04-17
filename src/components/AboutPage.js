@@ -50,6 +50,26 @@ const Main = styled.div`
   top: 10rem;
   font-family: 'Ubuntu Mono', monospace;
   font-style: italic;
+
+  @media (max-width: 40em) {
+    width: 60vw;
+    height: 50vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 30em) {
+    width: 50vw;
+    height: auto;
+    backdrop-filter: none;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 20em) {
+    padding: 1rem;
+    font-size: calc(0.5rem + 1vw);
+  }
 `
 
 
