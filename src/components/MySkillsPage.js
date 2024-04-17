@@ -16,6 +16,12 @@ const Box = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  @media (max-width: 50em) {
+    flex-direction: column;
+    padding: 8rem 0px;
+    height: auto;
+  }
 `
 
 const Main = styled.div`
@@ -38,6 +44,25 @@ const Main = styled.div`
       color: ${props => props.theme.body};
       background-color: ${props => props.theme.text};
   }
+
+  @media (max-width: 50em) {
+    height: 55vh;
+  }
+
+  @media (max-width: 50em) {
+    width: 50vw;
+    height: max-content;
+
+    &:nth-child(5) {
+      margin-bottom: 5rem;
+    }
+  }
+
+  @media (max-width: 30em) {
+    &:nth-child(5) {
+      margin-bottom: 4rem;
+    }
+  }
 `
 
 const Title = styled.h2`
@@ -45,6 +70,23 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: calc(1em + 1vw);
+
+  @media (max-width: 60em) {
+    font-size: calc(0.8em + 1vw);
+  }
+
+  @media (max-width: 50em) {
+    font-size: calc(1em + 2vw);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 30em) {
+    font-size: calc(1em + 1vw);
+  }
+
+  @media (max-width: 25em) {
+    font-size: calc(0.8em + 1vw);
+  }
 
   ${Main}:hover &{
       &>*{
@@ -61,6 +103,18 @@ const Description = styled.div`
   color: ${props => props.theme.text};
   font-size: calc(0.6em + 1vw);
   padding: 0.5rem 0;
+
+  @media (max-width: 50em) {
+    font-size: calc(0.8em + 1vw);
+  }
+
+  @media (max-width: 30em) {
+    font-size: calc(0.7em + 1vw);
+  }
+
+  @media (max-width: 25em) {
+    font-size: calc(0.5em + 1vw);
+  }
 
   ${Main}:hover &{
     color:${props => props.theme.body};  
