@@ -28,22 +28,46 @@ const Container = styled.div`
     padding: 2rem;
 `
 
-const Contact = styled.a`
-    color: ${props => props.theme.text};
+const Contact = styled(NavLink)`
+    color: ${props => props.click ? props.theme.body : props.theme.text};
     position: absolute;
     top: 2rem;
     right: calc(1rem + 2vw);
     text-decoration: none;
     z-index:1;
+
+    h2{
+        @media (max-width: 40em) {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 30em) {
+            font-size: 1em;
+        }
+    }
 `
 const BLOG = styled(NavLink)`
-    color: ${props => props.theme.text};
+    color: ${props => props.click ? props.theme.body : props.theme.text};
     position: absolute;
     top: 50%;
     right: calc(1rem + 2vw);
     transform: rotate(90deg) translate(-50%, -50%);
     text-decoration: none;
     z-index:1;
+
+    @media (max-width: 50em) {
+        text-shadow: rgb(0, 0, 0) 0px 0px 4px;
+    }
+
+    h2{
+        @media (max-width: 40em) {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 30em) {
+            font-size: 1em;
+        }
+    }
 `
 const WORK = styled(NavLink)`
     color: ${props => props.click ? props.theme.body : props.theme.text};
@@ -53,6 +77,20 @@ const WORK = styled(NavLink)`
     transform: translate(-50%, -50%) rotate(-90deg) ;
     text-decoration: none;
     z-index:1;
+
+    @media (max-width: 50em) {
+        text-shadow: rgb(0, 0, 0) 0px 0px 4px;
+    }
+
+    h2{
+        @media (max-width: 40em) {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 30em) {
+            font-size: 1em;
+        }
+    }
 `
 
 const BottomBar = styled.div`
@@ -64,12 +102,26 @@ const BottomBar = styled.div`
 
     display: flex;
     justify-content: space-evenly;
+
+    h2{
+        @media (max-width: 40em) {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 30em) {
+            font-size: 1em;
+        }
+    }
 `
 
 const ABOUT = styled(NavLink)`
     color: ${props => props.click ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index:1;
+
+    @media (max-width: 50em) {
+        color: ${props => props.theme.text};
+    }
 `
 const SKILLS = styled(NavLink)`
     color: ${props => props.theme.text};
@@ -110,6 +162,18 @@ const Center = styled.button`
         display: ${props => props.click ? 'none' : 'inline-block'};
         padding-top: 1rem;
     }
+
+    @media (max-width: 50em) {
+        top: ${props => props.click ? '90%' : '50%'};
+        left: ${props => props.click ? '90%' : '50%'};
+        width: ${props => props.click ? '80px' : '150px'};
+        height: ${props => props.click ? '80px' : '150px'};
+    }
+
+    @media (max-width: 30em) {
+        width: ${props => props.click ? '40px' : '150px'};
+        height: ${props => props.click ? '40px' : '150px'};
+    }
 `
 
 const DarkDiv = styled.div`
@@ -122,6 +186,13 @@ const DarkDiv = styled.div`
     height: ${props => props.click ? '100%' : '0%'};
     z-index:1;
     transition: height 0.5s ease, width 1s ease 0.5s;
+
+    @media (max-width: 50em) {
+        width: ${props => props.click ? '100%' : '0px'};
+        height: ${props => props.click ? '50%' : '0px'};
+        right: 0px;
+        transition: ${props => props.click ? 'width 0.5s ease 0s, height 1s ease 0.5s' : ''};
+    }
 `
 
 
@@ -129,20 +200,22 @@ const Main = () => {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
 
+    const theme = window.matchMedia("(max-width: 50em)").matches ? 'light' : (click ? 'dark' : 'light');
+
     return (
         <MainContainer>
             <DarkDiv click={click} />
             <Container>
                 <PowerButton />
                 <LogoComponent theme={click ? 'dark' : 'light'} />
-                <SocialIcons theme={click ? 'dark' : 'light'} />
+                <SocialIcons theme={theme} />
 
                 <Center click={click}>
                     <YinYang onClick={() => handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill='currentColor' />
                     <span>click here</span>
                 </Center>
 
-                <Contact target="_blank" href="mailto:gargakshay034@gmail.com">
+                <Contact target="_blank" href="mailto:gargakshay034@gmail.com" click={+click}>
                     <motion.h2
                         initial={{
                             y: -200,
@@ -159,7 +232,7 @@ const Main = () => {
                         Say hi..
                     </motion.h2>
                 </Contact>
-                <BLOG to="/blog">
+                <BLOG to="/blog" click={+click}>
                     <motion.h2
                         initial={{
                             y: -200,
