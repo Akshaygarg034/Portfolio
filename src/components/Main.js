@@ -56,7 +56,7 @@ const BLOG = styled(NavLink)`
     z-index:1;
 
     @media (max-width: 50em) {
-        text-shadow: rgb(0, 0, 0) 0px 0px 4px;
+        text-shadow: ${props => props.click ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
     }
 
     h2{
@@ -79,7 +79,7 @@ const WORK = styled(NavLink)`
     z-index:1;
 
     @media (max-width: 50em) {
-        text-shadow: rgb(0, 0, 0) 0px 0px 4px;
+        text-shadow: ${props => props.click ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
     }
 
     h2{
