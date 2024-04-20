@@ -3,10 +3,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { PowerBtn } from '../components/AllSvgs'
+import { HomeBtn } from '../components/AllSvgs'
 
 
-const Power = styled.button`
+const Home = styled.button`
     position: fixed;
     top: 2rem;
     left: 50%;
@@ -22,10 +22,10 @@ const Power = styled.button`
     align-items:center;
     z-index:3;
     cursor: pointer;
+    transition: all 0.3s ease;
 
     &:hover{
-        background-color: rgba(0,255,0,0.4);
-        box-shadow: 0 0 8px 6px rgba(0,255,0,0.2);
+        transform: translate(-50%, -10%);
     }
 
     &>*:first-child{
@@ -39,14 +39,14 @@ const Power = styled.button`
     }
 `
 
-const PowerButton = () => {
+const HomeButton = () => {
     return (
-        <Power>
+        <Home>
             <NavLink to="/">
-                <PowerBtn width={30} height={30} fill='currentColor' />
+                <HomeBtn width={30} height={30} fill='currentColor' />
             </NavLink>
-        </Power>
+        </Home>
     )
 }
 
-export default PowerButton
+export default HomeButton

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
-import PowerButton from '../subComponents/PowerButton'
+import HomeButton from '../subComponents/HomeButton'
 import SocialIcons from '../subComponents/SocialIcons'
 import Intro from './Intro';
 import LoadingSpinner from './LoadingSpinner/LoadingSpinner'
@@ -55,6 +55,7 @@ const BLOG = styled(NavLink)`
     z-index:1;
 
     @media (max-width: 50em) {
+        color: ${props => props.loaded ? props.theme.body : props.theme.text};
         text-shadow: ${props => props.loaded ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
     }
 
@@ -163,7 +164,7 @@ const Main = ({loaded, setLoaded}) => {
         <MainContainer>
             <DarkDiv loaded={loaded} />
             <Container>
-                <PowerButton />
+                <HomeButton />
                 <LoadingSpinner loaded= {loaded} setLoaded = {setLoaded}/>
                 <LogoComponent theme={loaded ? 'dark' : 'light'} />
                 <SocialIcons theme={theme} />

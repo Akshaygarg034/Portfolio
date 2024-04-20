@@ -36,7 +36,7 @@ const SocialIcons = (props) => {
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1 }}
       >
-        <a
+        <motion.a
           style={{ color: "inherit" }}
           target="_blank"
           rel="noopener noreferrer"
@@ -47,7 +47,7 @@ const SocialIcons = (props) => {
             height={25}
             fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
           />
-        </a>
+        </motion.a>
       </motion.div>
       <motion.div
         initial={{scale:0 }}

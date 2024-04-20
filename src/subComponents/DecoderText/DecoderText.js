@@ -38,7 +38,7 @@ function shuffle(content, output, position) {
 }
 
 // const springConfig = { stiffness: 20, damping: 20 };
-const springConfig = { stiffness: 2, damping: 0.6 };
+const springConfig = { stiffness: 2.5, damping: 0.9 };
 
 const DecoderText = memo(
     ({ text, start = true, delay: startDelay = 0, eachCharClass, className, ...rest }) => {

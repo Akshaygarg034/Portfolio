@@ -3,7 +3,7 @@ import styled, { keyframes, ThemeProvider } from 'styled-components'
 import { DarkTheme } from './Themes';
 import LogoComponent from '../subComponents/LogoComponent';
 import SocialIcons from '../subComponents/SocialIcons';
-import PowerButton from '../subComponents/PowerButton';
+import HomeButton from '../subComponents/HomeButton';
 import ParticleComponent from '../subComponents/ParticleComponent';
 import BigTitle from '../subComponents/BigTitle'
 import astronaut from '../assets/Images/spaceman.png'
@@ -81,7 +81,7 @@ const AboutPage = () => {
 
         <LogoComponent theme='dark' />
         <SocialIcons theme='dark' />
-        <PowerButton />
+        <HomeButton />
         <ParticleComponent theme='dark' />
 
         <Spaceman>

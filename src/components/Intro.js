@@ -147,7 +147,7 @@ const Intro = () => {
                     <h3>
                         I’m <DecoderText text={`Akshay Garg`} eachCharClass="namechar" delay={2200} />
                     </h3>
-                    <h6><ScramblingText data={introAnimatedText} delay={4000} startDelay={3500} /></h6>
+                    <h6><ScramblingText data={introAnimatedText} delay={4000} startDelay={4000} /></h6>
                 </Text>
             </SubBox>
             <SubBox>
