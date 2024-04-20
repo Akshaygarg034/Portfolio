@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import Me from '../assets/Images/profile-img.png'
+import DecoderText from '../subComponents/DecoderText/DecoderText'
+import { introAnimatedText } from "../data/IntroData"
+import ScramblingText from "../subComponents/ScramblingText/ScramblingText"
 
 const Box = styled(motion.div)`
     position: absolute;
@@ -22,7 +25,7 @@ const Box = styled(motion.div)`
     background-repeat: no-repeat;
     background-size: 100% 2px;
     border-left: 2px solid ${props => props.theme.body};
-    border-right: 2px solid ${props => props.theme.text};
+    border-right: 3px solid ${props => props.theme.text};
     z-index:1;
 
     @media (max-width: 1200em) {
@@ -141,8 +144,10 @@ const Intro = () => {
             <SubBox>
                 <Text>
                     <h1>Hi,</h1>
-                    <h3>I'm Akshay Garg.</h3>
-                    <h6>Software Engineer.</h6>
+                    <h3>
+                        I’m <DecoderText text={`Akshay Garg`} eachCharClass="namechar" delay={2200} />
+                    </h3>
+                    <h6><ScramblingText data={introAnimatedText} delay={4000} startDelay={3500} /></h6>
                 </Text>
             </SubBox>
             <SubBox>

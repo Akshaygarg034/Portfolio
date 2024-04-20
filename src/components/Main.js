@@ -254,7 +254,7 @@ const Main = ({loaded, setLoaded}) => {
                 </BottomBar>
 
             </Container>
-            {loaded ? <Intro loaded={loaded} /> : null}
+            {loaded ? <Intro/> : null}
         </MainContainer>
     )
 }
