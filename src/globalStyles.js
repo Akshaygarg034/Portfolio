@@ -21,6 +21,21 @@ body{
     font-family: 'Source Sans Pro',sans-serif;
 }
 
+
+::-webkit-scrollbar {
+    width: 0.4rem;
+    background-color: #1c2935;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.25rem;
+    background-color: #647578;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #779ea5;
+}
+
 `
 
 export default GlobalStyle;
