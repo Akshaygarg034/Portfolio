@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
 import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
-import { YinYang } from './AllSvgs'
-import Intro from './Intro'
-    ;
+import Intro from './Intro';
+import LoadingSpinner from './LoadingSpinner/LoadingSpinner'
 
 
 const MainContainer = styled.div`
@@ -29,7 +28,7 @@ const Container = styled.div`
 `
 
 const Contact = styled(NavLink)`
-    color: ${props => props.click ? props.theme.body : props.theme.text};
+    color: ${props => props.loaded ? props.theme.text : props.theme.body};
     position: absolute;
     top: 2rem;
     right: calc(1rem + 2vw);
@@ -47,7 +46,7 @@ const Contact = styled(NavLink)`
     }
 `
 const BLOG = styled(NavLink)`
-    color: ${props => props.click ? props.theme.body : props.theme.text};
+    color: ${props => props.loaded ? props.theme.text : props.theme.body};
     position: absolute;
     top: 50%;
     right: calc(1rem + 2vw);
@@ -56,7 +55,7 @@ const BLOG = styled(NavLink)`
     z-index:1;
 
     @media (max-width: 50em) {
-        text-shadow: ${props => props.click ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
+        text-shadow: ${props => props.loaded ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
     }
 
     h2{
@@ -70,7 +69,7 @@ const BLOG = styled(NavLink)`
     }
 `
 const WORK = styled(NavLink)`
-    color: ${props => props.click ? props.theme.body : props.theme.text};
+    color: ${props => props.loaded ? props.theme.body : props.theme.text};
     position: absolute;
     top: 50%;
     left: calc(1rem + 2vw);
@@ -79,7 +78,7 @@ const WORK = styled(NavLink)`
     z-index:1;
 
     @media (max-width: 50em) {
-        text-shadow: ${props => props.click ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
+        text-shadow: ${props => props.loaded ? 'rgb(0, 0, 0) 0px 0px 4px' : ''};
     }
 
     h2{
@@ -115,7 +114,7 @@ const BottomBar = styled.div`
 `
 
 const ABOUT = styled(NavLink)`
-    color: ${props => props.click ? props.theme.body : props.theme.text};
+    color: ${props => props.loaded ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index:1;
 
@@ -129,93 +128,47 @@ const SKILLS = styled(NavLink)`
     z-index:1;
 `
 
-const rotate = keyframes`
-    from{
-        transform: rotate(0);
-    }
-    to{
-        transform: rotate(360deg);
-    }
-`
-
-const Center = styled.button`
-    position: absolute;
-    top: ${props => props.click ? '85%' : '50%'};
-    left: ${props => props.click ? '92%' : '50%'};
-    transform: translate(-50%,-50%);
-    border: none;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: all 1s ease;
-
-    &>:first-child{
-        animation: ${rotate} infinite 1.5s linear;
-    }
-
-    &>:last-child{
-        display: ${props => props.click ? 'none' : 'inline-block'};
-        padding-top: 1rem;
-    }
-
-    @media (max-width: 50em) {
-        top: ${props => props.click ? '90%' : '50%'};
-        left: ${props => props.click ? '90%' : '50%'};
-        width: ${props => props.click ? '80px' : '150px'};
-        height: ${props => props.click ? '80px' : '150px'};
-    }
-
-    @media (max-width: 30em) {
-        width: ${props => props.click ? '40px' : '150px'};
-        height: ${props => props.click ? '40px' : '150px'};
-    }
-`
-
 const DarkDiv = styled.div`
     position: absolute;
     top: 0;
     background-color: #000;
     bottom: 0;
     right: 50%;
-    width: ${props => props.click ? '50%' : '0%'};
-    height: ${props => props.click ? '100%' : '0%'};
+    width: ${props => props.loaded ? '50%' : '0%'};
+    height: ${props => props.loaded ? '100%' : '0%'};
     z-index:1;
     transition: height 0.5s ease, width 1s ease 0.5s;
 
     @media (max-width: 50em) {
-        width: ${props => props.click ? '100%' : '0px'};
-        height: ${props => props.click ? '50%' : '0px'};
+        width: ${props => props.loaded ? '100%' : '0px'};
+        height: ${props => props.loaded ? '50%' : '0px'};
         right: 0px;
-        transition: ${props => props.click ? 'width 0.5s ease 0s, height 1s ease 0.5s' : ''};
+        transition: ${props => props.loaded ? 'width 0.5s ease 0s, height 1s ease 0.5s' : ''};
     }
 `
 
 
-const Main = () => {
-    const [click, setClick] = useState(false);
-    const handleClick = () => setClick(!click);
+const Main = ({loaded, setLoaded}) => {
+    const theme = window.matchMedia("(max-width: 50em)").matches ? 'light' : (loaded ? 'dark' : 'light');
 
-    const theme = window.matchMedia("(max-width: 50em)").matches ? 'light' : (click ? 'dark' : 'light');
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoaded(true);
+        }, 0);
+
+        return () => clearTimeout(timer);
+    }, [setLoaded]);
 
     return (
         <MainContainer>
-            <DarkDiv click={click} />
+            <DarkDiv loaded={loaded} />
             <Container>
                 <PowerButton />
-                <LogoComponent theme={click ? 'dark' : 'light'} />
+                <LoadingSpinner loaded= {loaded} setLoaded = {setLoaded}/>
+                <LogoComponent theme={loaded ? 'dark' : 'light'} />
                 <SocialIcons theme={theme} />
 
-                <Center click={click}>
-                    <YinYang onClick={() => handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill='currentColor' />
-                    <span>click here</span>
-                </Center>
-
-                <Contact target="_blank" href="mailto:gargakshay034@gmail.com" click={+click}>
+                <Contact target="_blank" href="mailto:gargakshay034@gmail.com" loaded={+loaded}>
                     <motion.h2
                         initial={{
                             y: -200,
@@ -232,7 +185,7 @@ const Main = () => {
                         Say hi..
                     </motion.h2>
                 </Contact>
-                <BLOG to="/blog" click={+click}>
+                <BLOG to="/blog" loaded={+loaded}>
                     <motion.h2
                         initial={{
                             y: -200,
@@ -248,7 +201,7 @@ const Main = () => {
                         Blog
                     </motion.h2>
                 </BLOG>
-                <WORK to="/work" click={+click}>
+                <WORK to="/work" loaded={+loaded}>
                     <motion.h2
                         initial={{
                             y: -200,
@@ -265,7 +218,7 @@ const Main = () => {
                     </motion.h2>
                 </WORK>
                 <BottomBar>
-                    <ABOUT to="/about" click={+click}>
+                    <ABOUT to="/about" loaded={+loaded}>
                         <motion.h2
                             initial={{
                                 y: 200,
@@ -301,7 +254,7 @@ const Main = () => {
                 </BottomBar>
 
             </Container>
-            {click ? <Intro click={click} /> : null}
+            {loaded ? <Intro loaded={loaded} /> : null}
         </MainContainer>
     )
 }

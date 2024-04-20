@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./components/Themes";
@@ -18,18 +18,20 @@ const MySkillsPage = React.lazy(() => import('./components/MySkillsPage'));
 
 function App() {
   const location = useLocation();
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <>
       <GlobalStyle />
 
       <ThemeProvider theme={lightTheme}>
 
-        <Suspense fallback={<FallbackComponent />}>
+        <Suspense fallback={<FallbackComponent loaded= {loaded} setLoaded = {setLoaded}/>}>
           <SoundBar />
           <AnimatePresence mode='wait'>
             <Routes key={location.pathname} location={location} >
 
-              <Route path="/" element={<Main />} />
+              <Route path="/" element={<Main loaded= {loaded} setLoaded = {setLoaded}/>} />
 
               <Route path="/about" element={<AboutPage />} />
 
@@ -49,18 +51,16 @@ function App() {
   );
 }
 
-const FallbackComponent = () => {
+const FallbackComponent = ({loaded, setLoaded}) => {
   return (
     <div style={{
       position: "absolute",
       top: "0",
+      left: "0",
       width: "100%",
-      marginTop: "5rem",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
+      height: "100%",
     }}>
-      <LoadingSpinner />
+      <LoadingSpinner loaded= {loaded} setLoaded = {setLoaded}/>
     </div>
   )
 }
