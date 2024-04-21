@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { Anchor, Link } from '../components/AllSvgs'
+import { DarkTheme } from "../components/Themes";
+
 
 const Container = styled.div`
     position: relative;
@@ -66,15 +68,15 @@ const AnchorComponent = (props) => {
         <Container>
             <PreDisplay ref={hiddenRef} className='hidden'>
 
-                <Anchor width={70} height={70} fill='currentColor' />
+                <Anchor width={70} height={70} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} />
             </PreDisplay>
             <Slider ref={ref}>
                 {
                     [...Array(props.number)].map((x, id) => {
-                        return <Link key={id} width={25} height={25} fill='currentColor' className="chain" />
+                        return <Link key={id} width={25} height={25} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} className="chain" />
                     })
                 }
-                <Anchor width={70} height={70} fill='currentColor' />
+                <Anchor width={70} height={70} fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body} />
             </Slider>
         </Container>
     )

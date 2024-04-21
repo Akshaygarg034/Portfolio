@@ -11,6 +11,7 @@ import NotFound from "./components/NotFound/NotFound";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 const Main = React.lazy(() => import('./components/Main'));
+const Experience = React.lazy(() => import('./components/Experience/Experience'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
 const BlogPage = React.lazy(() => import('./components/BlogPage'));
 const WorkPage = React.lazy(() => import('./components/WorkPage'));
@@ -37,7 +38,7 @@ function App() {
 
               <Route path="/blog" element={<BlogPage />} />
 
-              <Route path="/work" element={<WorkPage />} />
+              <Route path="/work" element={<Experience />} />
 
               <Route path="/skills" element={<MySkillsPage />} />
 
