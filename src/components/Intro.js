@@ -6,6 +6,7 @@ import DecoderText from '../subComponents/DecoderText/DecoderText'
 import { introAnimatedText } from "../data/IntroData"
 import ScramblingText from "../subComponents/ScramblingText/ScramblingText"
 
+
 const Box = styled(motion.div)`
     position: absolute;
     left: 50%;
@@ -117,10 +118,27 @@ const Text = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
 
-    &>*:last-child{
+    h3 {
+        font-family: 'Quantico';
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 500;
+
+        > span {
+            color: #ffd29e;
+        }
+    }
+
+    h6{
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: 'Quantico';
+        font-size: calc((24 / 16) * 1rem);
+        letter-spacing: 0.1em;
+        color: #00e5ff;
+        font-weight: 500;
         color: ${props => `rgba(${props.theme.bodyRgba},0.6)`};
         font-size: calc(0.5rem + 1.5vw);
-        font-weight:300;
     }
 
     @media (max-width: 40em) {
@@ -143,9 +161,9 @@ const Intro = () => {
         >
             <SubBox>
                 <Text>
-                    <h1>Hi,</h1>
+                    <h3>Hi,</h3>
                     <h3>
-                        I’m <DecoderText text={`Akshay Garg`} eachCharClass="namechar" delay={2200} />
+                        I'm <DecoderText text={`AKSHAY GARG`} eachCharClass="namechar" delay={2200} />
                     </h3>
                     <h6><ScramblingText data={introAnimatedText} delay={4000} startDelay={4000} /></h6>
                 </Text>
