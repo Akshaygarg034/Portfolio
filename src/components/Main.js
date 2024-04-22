@@ -165,7 +165,7 @@ const Main = ({loaded, setLoaded}) => {
             <DarkDiv loaded={loaded} />
             <Container>
                 <HomeButton />
-                <LoadingSpinner loaded= {loaded} setLoaded = {setLoaded}/>
+                <LoadingSpinner loaded= {loaded}/>
                 <LogoComponent theme={loaded ? 'dark' : 'light'} />
                 <SocialIcons theme={theme} />
 

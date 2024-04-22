@@ -19,7 +19,6 @@ const Center = styled.button`
     border: none;
     outline: none;
     background-color: transparent;
-    cursor: pointer;
 
     display: flex;
     flex-direction: column;
@@ -46,11 +45,10 @@ const Center = styled.button`
 `
 
 
-const LoadingSpinner = ({loaded, setLoaded}) => {
-    const handleClick = () => setLoaded(!loaded);
+const LoadingSpinner = ({loaded}) => {
     return (
         <Center loaded={loaded}>
-            <YinYang onClick={() => handleClick()} width={loaded ? 120 : 200} height={loaded ? 120 : 200} fill='currentColor' />
+            <YinYang width={loaded ? 120 : 200} height={loaded ? 120 : 200} fill='currentColor' />
         </Center>
     )
 }

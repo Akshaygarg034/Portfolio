@@ -6,7 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { DarkTheme } from "../Themes";
 import LogoComponent from "../../subComponents/LogoComponent";
 import HomeButton from '../../subComponents/HomeButton';
-import BigTitlte from "../../subComponents/BigTitle";
+import BigTitle from "../../subComponents/BigTitle";
 import { motion } from 'framer-motion';
 
 // Framer-motion Configuration
@@ -30,7 +30,7 @@ const skillBubbleVariant = {
 const SkillsPage = () => {
     return (
         <ThemeProvider theme={DarkTheme}>
-            <BigTitlte text="SKILLS" top="6.5%" right="5%" />
+            <BigTitle text="SKILLS" top="6.5%" right="5%" />
             <LogoComponent theme="dark" />
             <HomeButton />
             <section className={styles.skillSection}>

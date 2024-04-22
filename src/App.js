@@ -13,10 +13,11 @@ import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 const Main = React.lazy(() => import('./components/Main'));
 const Experience = React.lazy(() => import('./components/Experience/Experience'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
-const BlogPage = React.lazy(() => import('./components/BlogPage'));
+// const BlogPage = React.lazy(() => import('./components/BlogPage'));
 // const WorkPage = React.lazy(() => import('./components/WorkPage'));
 // const MySkillsPage = React.lazy(() => import('./components/MySkillsPage'));
 const SkillsPage = React.lazy(() => import('./components/SkillsPage/SkillsPage'));
+const ProjectsPage = React.lazy(() => import('./components/ProjectsPage'));
 
 function App() {
   const location = useLocation();
@@ -37,7 +38,7 @@ function App() {
 
               <Route path="/about" element={<AboutPage />} />
 
-              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog" element={<ProjectsPage />} />
 
               <Route path="/work" element={<Experience />} />
 
@@ -62,7 +63,7 @@ const FallbackComponent = ({loaded, setLoaded}) => {
       width: "100%",
       height: "100%",
     }}>
-      <LoadingSpinner loaded= {loaded} setLoaded = {setLoaded}/>
+      <LoadingSpinner loaded= {loaded}/>
     </div>
   )
 }
