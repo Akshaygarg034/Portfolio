@@ -50,25 +50,6 @@
     color: rgb(243, 243, 243);
 }
 
-.wrapper {
-    margin-bottom: 1.5rem;
-    padding: 0 5em;
-}
-
-.subText {
-    opacity: 0.8;
-    text-transform: uppercase;
-    color: rgb(170, 166, 195);
-    letter-spacing: 0.2em;
-    font-weight: 600;
-    font-size: 17px;
-}
-
-.headText {
-    font-weight: 900;
-    color: rgb(255, 255, 255);
-    font-size: 45px;
-}
 
 @media screen and (min-width: 1170px) and (max-width: 1400px) {
     .timelineWrapper {

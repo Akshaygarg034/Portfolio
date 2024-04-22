@@ -28,9 +28,9 @@ const Experience = () => {
             <HomeButton />
             <AnchorComponent number={numbers} theme = "dark"/>
             <section id="experience" className={styles.experience}>
-                <div className={styles.wrapper}>
-                    <p className={styles.subText}>WHERE I’VE WORKED</p>
-                    <h2 className={styles.headText}>Work Experience</h2>
+                <div className="wrapper">
+                    <p className="subText">WHERE I’VE WORKED</p>
+                    <h2 className="headText">Work Experience</h2>
                 </div>
                 <div className={styles.timelineWrapper}>
                     <VerticalTimeline animate={!isMobile} lineColor="rgb(243, 243, 243)">

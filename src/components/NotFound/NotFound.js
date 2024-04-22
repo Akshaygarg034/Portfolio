@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import classes from './styles.module.css'
 import SlidingBtn from '../../subComponents/SlidingBtn/SlidingBtn'
-import {Ghost} from '../AllSvgs'
+import {Ghost} from '../generalSvgs'
 
 const NotFound = () => {
     return (

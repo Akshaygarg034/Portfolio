@@ -145,8 +145,18 @@ const Text = styled.div`
         font-size: calc(1rem + 1.5vw);
     }
 
+    @media (max-width: 30em) {
+        padding: 1.1rem;
+        >h3{
+            font-size: 1.1em;
+        }
+    }
+
     @media (max-width: 20em) {
         padding: 1rem;
+        >h3{
+            font-size: 0.9em;
+        }
     }
 `
 

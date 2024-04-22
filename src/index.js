@@ -3,6 +3,7 @@ import App from './App'
 // import reportWebVitals from './reportWebVitals';
 // import '../node_modules/normalize.css'
 import "normalize.css"
+import "./App.css"
 import { createRoot } from 'react-dom/client';
 
 import { BrowserRouter } from 'react-router-dom'

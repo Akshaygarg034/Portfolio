@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { YinYang } from '../AllSvgs'
+import { YinYang } from '../generalSvgs'
 
 const rotate = keyframes`
     from{

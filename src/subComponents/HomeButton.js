@@ -3,7 +3,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { HomeBtn } from '../components/AllSvgs'
+import { HomeBtn } from '../components/generalSvgs'
 
 
 const Home = styled.button`

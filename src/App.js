@@ -14,8 +14,9 @@ const Main = React.lazy(() => import('./components/Main'));
 const Experience = React.lazy(() => import('./components/Experience/Experience'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
 const BlogPage = React.lazy(() => import('./components/BlogPage'));
-const WorkPage = React.lazy(() => import('./components/WorkPage'));
-const MySkillsPage = React.lazy(() => import('./components/MySkillsPage'));
+// const WorkPage = React.lazy(() => import('./components/WorkPage'));
+// const MySkillsPage = React.lazy(() => import('./components/MySkillsPage'));
+const SkillsPage = React.lazy(() => import('./components/SkillsPage/SkillsPage'));
 
 function App() {
   const location = useLocation();
@@ -40,7 +41,7 @@ function App() {
 
               <Route path="/work" element={<Experience />} />
 
-              <Route path="/skills" element={<MySkillsPage />} />
+              <Route path="/skills" element={<SkillsPage />} />
 
               {/* Below is to catch all the other routes and send the user to main componentt*/}
               <Route path="*" element={<NotFound />} />

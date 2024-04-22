@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components';
-import { Github } from '../components/AllSvgs';
+import { Github } from '../components/generalSvgs';
 
 const Box = styled(motion.li)`
     width: 16rem;

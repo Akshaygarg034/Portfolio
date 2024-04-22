@@ -9,7 +9,7 @@ import HomeButton from "../subComponents/HomeButton";
 
 import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card";
-import { YinYang } from "./AllSvgs";
+import { YinYang } from "./generalSvgs";
 import BigTitlte from "../subComponents/BigTitle";
 
 const Box = styled.div`

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { Anchor, Link } from '../components/AllSvgs'
+import { Anchor, Link } from '../components/generalSvgs'
 import { DarkTheme } from "../components/Themes";
 
 
