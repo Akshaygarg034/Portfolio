@@ -54,7 +54,7 @@ function App() {
   );
 }
 
-const FallbackComponent = ({loaded, setLoaded}) => {
+const FallbackComponent = ({loaded}) => {
   return (
     <div style={{
       position: "absolute",

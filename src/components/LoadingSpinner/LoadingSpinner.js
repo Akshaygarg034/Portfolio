@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
-import { YinYang } from '../generalSvgs'
+// import { YinYang } from '../generalSvgs'
+import loaderImg from "../../assets/Images/wheel.png"
 
 const rotate = keyframes`
     from{
@@ -27,28 +28,49 @@ const Center = styled.button`
     transition: all 1s ease;
 
     &>:first-child{
-        animation: ${rotate} infinite 1.5s linear;
+        animation: ${rotate} infinite 3s linear;
     }
-
 
     @media (max-width: 50em) {
         top: ${props => props.loaded ? '90%' : '50%'};
         left: ${props => props.loaded ? '90%' : '50%'};
-        width: ${props => props.loaded ? '80px' : '150px'};
-        height: ${props => props.loaded ? '80px' : '150px'};
     }
 
-    @media (max-width: 30em) {
-        width: ${props => props.loaded ? '40px' : '150px'};
-        height: ${props => props.loaded ? '40px' : '150px'};
+    @media (max-width: 650px) {
+        left: ${props => props.loaded ? '89%' : '50%'};
+    }
+
+    @media (max-width: 450px) {
+        left: ${props => props.loaded ? '87%' : '50%'};
     }
 `
 
+const StyledImg = styled.img`
+    width: ${props => props.loaded ? '150px' : '220px'};
+    height: ${props => props.loaded ? '150px' : '220px'};
 
-const LoadingSpinner = ({loaded}) => {
+    @media (max-width: 50em) {
+        width: ${props => props.loaded ? '130px' : '200px'};
+        height: ${props => props.loaded ? '130px' : '200px'};
+    }
+
+    @media (max-width: 650px) {
+        width: ${props => props.loaded ? '110px' : '200px'};
+        height: ${props => props.loaded ? '110px' : '200px'};
+    }
+
+    @media (max-width: 450px) {
+        width: ${props => props.loaded ? '95px' : '200px'};
+        height: ${props => props.loaded ? '95px' : '200px'};
+    }
+`;
+
+
+const LoadingSpinner = ({ loaded }) => {
     return (
         <Center loaded={loaded}>
-            <YinYang width={loaded ? 120 : 200} height={loaded ? 120 : 200} fill='currentColor' />
+            <StyledImg src={loaderImg} alt="loader" loaded={loaded} />
+            {/* <YinYang width={loaded ? 120 : 200} height={loaded ? 120 : 200} fill='currentColor' /> */}
         </Center>
     )
 }

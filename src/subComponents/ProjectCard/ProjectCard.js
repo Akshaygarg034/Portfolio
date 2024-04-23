@@ -1,10 +1,14 @@
 import React from 'react'
 import styles from './Projects.module.css';
 import { Icon } from '../Icons/index';
+import { motion } from "framer-motion";
 
-function ProjectCard({data}) {
+function ProjectCard({ data }) {
     return (
-        <div className={styles.projectCard}>
+        <motion.div className={styles.projectCard}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 3 } }}
+        >
             <div className={styles["project-content"]}>
                 <p className={styles["project-overline"]}>Featured Project</p>
 
@@ -39,12 +43,12 @@ function ProjectCard({data}) {
                     )}
                 </div>
             </div>
-            
+
             {/* Background image */}
             <div className={[styles["project-image"], styles.backgroundImage].join(" ")}>
                 <img src={data.image} alt={data.title} className={styles["img"]} />
             </div>
-        </div>
+        </motion.div>
     )
 }
 
