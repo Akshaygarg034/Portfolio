@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import Me from '../assets/Images/profile-img.png'
+// import Me from '../assets/Images/profile-img.png'
 import DecoderText from '../subComponents/DecoderText/DecoderText'
 import { introAnimatedText } from "../data/IntroData"
 import ScramblingText from "../subComponents/ScramblingText/ScramblingText"
@@ -15,18 +15,8 @@ const Box = styled(motion.div)`
     width: 65vw;
     height:55vh;
     display: flex;
-    background: linear-gradient(
-        to right,
-        ${props => props.theme.body} 50%,
-        ${props => props.theme.text} 50%) bottom,
-        linear-gradient(
-        to right,
-        ${props => props.theme.body} 50%,
-        ${props => props.theme.text} 50%) top;
     background-repeat: no-repeat;
     background-size: 100% 2px;
-    border-left: 2px solid ${props => props.theme.body};
-    border-right: 3px solid ${props => props.theme.text};
     z-index:1;
 
     @media (max-width: 1200em) {
@@ -43,21 +33,8 @@ const Box = styled(motion.div)`
         flex-direction: column;
         -webkit-box-pack: justify;
         justify-content: space-between;
-
-        background: linear-gradient(
-            to bottom,
-            ${props => props.theme.body} 50%,
-            ${props => props.theme.text} 50%) left,
-            linear-gradient(
-            to bottom,
-            ${props => props.theme.body} 50%,
-            ${props => props.theme.text} 50%) right;
         background-repeat: no-repeat;
         background-size: 2px 100%;
-        border-left: none;
-        border-right: none;
-        border-top: 2px solid ${props => props.theme.body};
-        border-bottom: 2px solid ${props => props.theme.text};
     }
 
     @media (max-width: 40em) {
@@ -77,31 +54,6 @@ const SubBox = styled.div`
     position: relative;
     display: flex;
 
-    .pic{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%,0%);
-        width: 100%;
-        height: auto;
-
-        @media (max-width: 50em) {
-            width: 70%;
-        }
-
-        @media (max-width: 40em) {
-            width: 80%;
-        }
-
-        @media (max-width: 30em) {
-            width: 90%;
-        }
-
-        @media (max-width: 20em) {
-            width: 80%;
-        }
-    }
-
     @media (max-width: 50em) {
         width: 100%;
         height: 50%;
@@ -110,7 +62,7 @@ const SubBox = styled.div`
 
 const Text = styled.div`
     font-size: calc(1em + 1.5vw);
-    color: ${props => props.theme.body};
+    color: ${props => props.theme.text};
     padding: 2rem;
     cursor: pointer;
 
@@ -131,13 +83,14 @@ const Text = styled.div`
 
     h6{
         overflow: hidden;
+        min-height: 2.5rem;
         white-space: nowrap;
         font-family: 'Quantico';
         font-size: calc((24 / 16) * 1rem);
         letter-spacing: 0.1em;
         color: #00e5ff;
         font-weight: 500;
-        color: ${props => `rgba(${props.theme.bodyRgba},0.6)`};
+        color: ${props => `rgba(${props.theme.textRgba},0.6)`};
         font-size: calc(0.5rem + 1.5vw);
     }
 
@@ -161,7 +114,7 @@ const Text = styled.div`
 `
 
 const Intro = () => {
-    const height = window.matchMedia("(max-width: 50em)").matches ? '70vh' : '55vh';
+    const height = window.matchMedia("(max-width: 50em)").matches ? '70vh' : '56vh';
 
     return (
         <Box
@@ -179,13 +132,6 @@ const Intro = () => {
                 </Text>
             </SubBox>
             <SubBox>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
-                >
-                    <img className="pic" src={Me} alt="Profile Pic" />
-                </motion.div>
             </SubBox>
         </Box>
     )

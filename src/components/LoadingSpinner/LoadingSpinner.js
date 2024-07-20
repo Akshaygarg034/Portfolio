@@ -46,6 +46,7 @@ const Center = styled.button`
 `
 
 const StyledImg = styled.img`
+    filter: invert(1);
     width: ${props => props.loaded ? '150px' : '220px'};
     height: ${props => props.loaded ? '150px' : '220px'};
 

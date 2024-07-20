@@ -7,6 +7,7 @@ import HomeButton from '../subComponents/HomeButton';
 import ParticleComponent from '../subComponents/ParticleComponent';
 import BigTitle from '../subComponents/BigTitle'
 import astronaut from '../assets/Images/spaceman.png'
+import Form from '../subComponents/Form/Form';
 
 const Box = styled.div`
 background-color: ${props => props.theme.body};
@@ -25,6 +26,7 @@ const Spaceman = styled.div`
 position: absolute;
 top: 10%;
 right: 5%;
+z-index: 4;
 width: 20vw;
 animation: ${float} 4s ease infinite;
 img{
@@ -33,11 +35,9 @@ img{
 }
 `
 const Main = styled.div`
-  border: 2px solid ${(props) => props.theme.text};
   color: ${(props) => props.theme.text};
   padding: 2rem;
   width: 50vw;
-  height: 60vh;
   z-index: 3;
   line-height: 1.5;
   display: flex;
@@ -49,7 +49,8 @@ const Main = styled.div`
   left: calc(5rem + 5vw);
   top: 10rem;
   font-family: 'Ubuntu Mono', monospace;
-  font-style: italic;
+  background: #36363638;
+  border-radius: 6px;
 
   @media (max-width: 40em) {
     width: 60vw;
@@ -60,19 +61,9 @@ const Main = styled.div`
   }
 
   @media (max-width: 30em) {
-    width: 50vw;
-    height: auto;
-    backdrop-filter: none;
-    margin-top: 2rem;
-  }
-
-  @media (max-width: 20em) {
-    padding: 1rem;
-    font-size: calc(0.5rem + 1vw);
+   top: 53%;
   }
 `
-
-
 
 const AboutPage = () => {
   return (
@@ -82,22 +73,16 @@ const AboutPage = () => {
         <LogoComponent theme='dark' />
         <SocialIcons theme='dark' />
         <HomeButton />
-        <ParticleComponent theme='dark' />
+        <ParticleComponent type='about' />
 
         <Spaceman>
           <img src={astronaut} alt="spaceman" />
         </Spaceman>
         <Main>
-          I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
-          <br /> <br />
-          I'm interested in the whole frontend stack Like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
-          <br /> <br />
-          I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
+          <Form />
         </Main>
 
         <BigTitle text="ABOUT" top="10%" left="5%" />
-
-
       </Box>
 
     </ThemeProvider>

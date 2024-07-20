@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import ConfigDark from "../config/particlesjs-config.json";
-import ConfigLight from "../config/particlesjs-config-light.json";
+import ConfigAbout from "../config/particlesjs-config.json";
+import ConfigSkills from "../config/particlesjs-config-light.json";
+import { useCallback } from "react";
 
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -15,17 +16,35 @@ const Box = styled.div`
 `;
 
 const ParticlesComponent = (props) => {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  let config;
+  switch (props.type) {
+    case "about":
+      config = ConfigAbout;
+      break;
+    case "skills":
+      config = ConfigSkills;
+      break;
+    default:
+      config = {};
+  }
+
+  const particlesInit = useCallback(async engine => {
+    console.log(engine);
+    await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async container => {
+    await console.log(container);
+  }, []);
 
   return (
     <Box>
       <Particles
         id="tsparticles"
         style={{ position: "absolute", top: 0 }}
-        params={props.theme === "light" ? ConfigLight : ConfigDark}
+        options={config}
         init={particlesInit}
+        loaded={particlesLoaded}
       />
     </Box>
   );

@@ -13,9 +13,6 @@ import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 const Main = React.lazy(() => import('./components/Main'));
 const Experience = React.lazy(() => import('./components/Experience/Experience'));
 const AboutPage = React.lazy(() => import('./components/AboutPage'));
-// const BlogPage = React.lazy(() => import('./components/BlogPage'));
-// const WorkPage = React.lazy(() => import('./components/WorkPage'));
-// const MySkillsPage = React.lazy(() => import('./components/MySkillsPage'));
 const SkillsPage = React.lazy(() => import('./components/SkillsPage/SkillsPage'));
 const ProjectsPage = React.lazy(() => import('./components/ProjectsPage'));
 
