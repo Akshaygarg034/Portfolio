@@ -11,6 +11,7 @@ import { projectsData } from '../data/ProjectsData'
 import BigTitle from "../subComponents/BigTitle";
 import ProjectCard from "../subComponents/ProjectCard/ProjectCard";
 import loaderImg from "../assets/Images/wheel.png"
+import ScrollIndicator from "../subComponents/ScrollIndicator/ScrollIndicator";
 
 const Box = styled.div`
   background: #141414;
@@ -150,6 +151,7 @@ const WorkPage = () => {
         </Rotate>
 
         <BigTitle text={Text} top="5%" right="5%" />
+        <ScrollIndicator mountDelay={2000} href="#"/>
       </Box>
     </ThemeProvider>
   );

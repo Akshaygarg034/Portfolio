@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
@@ -45,7 +45,7 @@ const Contact = styled(NavLink)`
         }
     }
 `
-const BLOG = styled(NavLink)`
+const SKILLS = styled(NavLink)`
     color: ${props => props.loaded ? props.theme.text : props.theme.body};
     position: absolute;
     top: 50%;
@@ -69,7 +69,7 @@ const BLOG = styled(NavLink)`
         }
     }
 `
-const WORK = styled(NavLink)`
+const ABOUT = styled(NavLink)`
     color: ${props => props.loaded ? props.theme.body : props.theme.text};
     position: absolute;
     top: 50%;
@@ -114,7 +114,7 @@ const BottomBar = styled.div`
     }
 `
 
-const ABOUT = styled(NavLink)`
+const EXPERIENCE = styled(NavLink)`
     color: ${props => props.loaded ? props.theme.body : props.theme.text};
     text-decoration: none;
     z-index:1;
@@ -123,7 +123,7 @@ const ABOUT = styled(NavLink)`
         color: ${props => props.theme.text};
     }
 `
-const SKILLS = styled(NavLink)`
+const PROJECTS = styled(NavLink)`
     color: ${props => props.theme.text};
     text-decoration: none;
     z-index:1;
@@ -149,7 +149,7 @@ const DarkDiv = styled.div`
 `
 
 
-const Main = ({loaded, setLoaded}) => {
+const Main = ({ loaded, setLoaded }) => {
     const theme = window.matchMedia("(max-width: 50em)").matches ? 'light' : (loaded ? 'dark' : 'light');
 
     useEffect(() => {
@@ -165,7 +165,7 @@ const Main = ({loaded, setLoaded}) => {
             <DarkDiv loaded={loaded} />
             <Container>
                 <HomeButton />
-                <LoadingSpinner loaded= {loaded}/>
+                <LoadingSpinner loaded={loaded} />
                 <LogoComponent theme={loaded ? 'dark' : 'light'} />
                 <SocialIcons theme={theme} />
 
@@ -186,7 +186,8 @@ const Main = ({loaded, setLoaded}) => {
                         Say hi..
                     </motion.h2>
                 </Contact>
-                <BLOG to="/blog" loaded={+loaded}>
+                
+                <SKILLS to="/skills" loaded={+loaded}>
                     <motion.h2
                         initial={{
                             y: -200,
@@ -199,10 +200,11 @@ const Main = ({loaded, setLoaded}) => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        Blog
+                        Skills
                     </motion.h2>
-                </BLOG>
-                <WORK to="/work" loaded={+loaded}>
+                </SKILLS>
+
+                <ABOUT to="/about" loaded={+loaded}>
                     <motion.h2
                         initial={{
                             y: -200,
@@ -215,11 +217,12 @@ const Main = ({loaded, setLoaded}) => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                     >
-                        Work
+                        About
                     </motion.h2>
-                </WORK>
+                </ABOUT>
+
                 <BottomBar>
-                    <ABOUT to="/about" loaded={+loaded}>
+                    <EXPERIENCE to="/experience" loaded={+loaded}>
                         <motion.h2
                             initial={{
                                 y: 200,
@@ -232,10 +235,10 @@ const Main = ({loaded, setLoaded}) => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            About.
+                            Experience
                         </motion.h2>
-                    </ABOUT>
-                    <SKILLS to="/skills">
+                    </EXPERIENCE>
+                    <PROJECTS to="/projects">
                         <motion.h2
                             initial={{
                                 y: 200,
@@ -248,14 +251,14 @@ const Main = ({loaded, setLoaded}) => {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            My Skills.
+                            Projects
                         </motion.h2>
-                    </SKILLS>
+                    </PROJECTS>
 
                 </BottomBar>
 
             </Container>
-            {loaded ? <Intro/> : null}
+            {loaded ? <Intro /> : null}
         </MainContainer>
     )
 }
