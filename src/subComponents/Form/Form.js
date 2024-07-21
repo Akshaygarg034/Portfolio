@@ -20,23 +20,30 @@ const Form = () => {
     const [buttonText, setButtonText] = useState("Send Message");
     const [showEmailError, setShowEmailError] = useState(false);
     const [showMessageError, setShowMessageError] = useState(false);
-    const [errorMsg, setErrorMsg] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const submitForm = async event => {
         event.preventDefault();
 
         if (formStates.loading) return;
         if (!formStates.email || !formStates.message) {
-            setErrorMsg("Please fill all the fields");
+            setErrorEmail("Please fill all the fields");
+            setErrorMessage("Please fill all the fields");
             setShowEmailError(true);
             setShowMessageError(true);
             return;
         }
         if (!isEmailValid(formStates.email)) {
-            setErrorMsg("Please enter a valid email");
+            setErrorEmail("Please enter a valid email");
+            setErrorMessage("");
             setShowEmailError(true);
+            setShowMessageError(false)
             return;
         }
+
+        setShowEmailError(false);
+        setShowMessageError(false)
 
         setFormStates(prev => ({ ...prev, loading: true }));
 
@@ -53,7 +60,8 @@ const Form = () => {
             setFormStates({ email: "", message: "", loading: false });
             setShowEmailError(false);
             setShowMessageError(false);
-            setErrorMsg("");
+            setErrorEmail("");
+            setErrorMessage("");
         } catch (error) {
             console.log("Failed to send email!", error);
             alert("Failed to send email!. You can email me at gargakshay034@gmail.com");
@@ -67,7 +75,7 @@ const Form = () => {
                 {!smallScreen && <EmailSvg />}
                 <TextField
                     error={showEmailError}
-                    helperText={showEmailError ? errorMsg : ""}
+                    helperText={showEmailError ? errorEmail : ""}
                     id={styles.inputEmail}
                     label="Your Email"
                     variant="outlined"
@@ -99,7 +107,7 @@ const Form = () => {
                 {!smallScreen && <MessageSvg />}
                 <TextField
                     error={showMessageError}
-                    helperText={showMessageError ? errorMsg : ""}
+                    helperText={showMessageError ? errorMessage : ""}
                     id={styles.inputMsg}
                     label="Message"
                     variant="outlined"
