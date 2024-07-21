@@ -138,7 +138,7 @@ const Main = ({ loaded, setLoaded }) => {
                     <LogoComponent theme={loaded ? 'dark' : 'light'} />
                     <SocialIcons theme={theme} />
 
-                    <Contact target="_blank" href="mailto:gargakshay034@gmail.com" loaded={+loaded}>
+                    <Contact to="/contact" loaded={+loaded}>
                         <motion.h2
                             initial={{
                                 y: -200,

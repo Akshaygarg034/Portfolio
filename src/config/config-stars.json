@@ -1,10 +1,10 @@
 {
   "particles": {
     "number": {
-      "value": 100,
+      "value": 200,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 1000
       }
     },
     "color": {
@@ -21,8 +21,8 @@
       },
       "image": {
         "src": "img/github.svg",
-        "width": 100,
-        "height": 100
+        "width": 50,
+        "height": 50
       }
     },
     "opacity": {
@@ -47,7 +47,7 @@
     },
     "line_linked": {
       "enable": false,
-      "distance": 150,
+      "distance": 10,
       "color": "#ffffff",
       "opacity": 0.4,
       "width": 1
@@ -88,7 +88,7 @@
         }
       },
       "bubble": {
-        "distance": 250,
+        "distance": 200,
         "size": 0,
         "duration": 2,
         "opacity": 0,

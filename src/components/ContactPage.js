@@ -51,6 +51,7 @@ const Main = styled.div`
   font-family: 'Ubuntu Mono', monospace;
   background: #36363638;
   border-radius: 6px;
+  box-shadow: 4px 3px 11px 2px #80808042;
 
   @media (max-width: 40em) {
     width: 60vw;
@@ -65,7 +66,8 @@ const Main = styled.div`
   }
 `
 
-const AboutPage = () => {
+const ContactPage = () => {
+  const Text = window.matchMedia("(max-width: 550px)").matches ? 'SAY HI' : 'CONTACT';
   return (
     <ThemeProvider theme={DarkTheme}>
       <Box>
@@ -73,7 +75,7 @@ const AboutPage = () => {
         <LogoComponent theme='dark' />
         <SocialIcons theme='dark' />
         <HomeButton />
-        <ParticleComponent type='about' />
+        <ParticleComponent type='contact' />
 
         <Spaceman>
           <img src={astronaut} alt="spaceman" />
@@ -82,7 +84,7 @@ const AboutPage = () => {
           <Form />
         </Main>
 
-        <BigTitle text="ABOUT" top="10%" left="5%" />
+        <BigTitle text={Text} top="10%" left="5%" />
       </Box>
 
     </ThemeProvider>
@@ -90,4 +92,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default ContactPage

@@ -8,17 +8,16 @@
     width: fit-content;
     padding: 0 1.4rem;
     text-decoration: none;
-    text-transform: capitalize;
     cursor: pointer;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    font-family:'Karla', sans-serif ;
     margin: 1.4em 0;
     transform: scale(0.9);
     color: black;
-
+    font-weight: 500;
     transition: transform var(--transition-time) cubic-bezier(0.19, 1, 0.22, 1);
 }
 

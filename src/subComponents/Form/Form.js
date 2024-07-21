@@ -2,53 +2,61 @@ import React, { useState } from 'react'
 import styles from "./Form.module.css"
 import ClippedButton from '../ClippedButton/ClippedButton';
 import { Box, TextField } from '@mui/material';
-import InputAdornment from '@mui/material/InputAdornment';
+import emailjs from '@emailjs/browser';
 
 // function for email validation using regex
 const emailRegex = /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
 const isEmailValid = email => {
     return emailRegex.test(email);
 }
+const smallScreen = window.matchMedia('(max-width: 640px)').matches;
 
 const Form = () => {
-    const smallScreen = window.matchMedia('(max-width: 640px)').matches;
     const [formStates, setFormStates] = useState({
         email: "",
         message: "",
         loading: false,
     });
+    const [buttonText, setButtonText] = useState("Send Message");
+    const [showEmailError, setShowEmailError] = useState(false);
+    const [showMessageError, setShowMessageError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
     const submitForm = async event => {
         event.preventDefault();
 
         if (formStates.loading) return;
         if (!formStates.email || !formStates.message) {
-            alert("Please fill all the fields");
+            setErrorMsg("Please fill all the fields");
+            setShowEmailError(true);
+            setShowMessageError(true);
             return;
         }
         if (!isEmailValid(formStates.email)) {
-            alert("Please enter a valid email");
+            setErrorMsg("Please enter a valid email");
+            setShowEmailError(true);
             return;
         }
 
         setFormStates(prev => ({ ...prev, loading: true }));
 
+        const templateParams = {
+            to_name: process.env.REACT_APP_TO_NAME,
+            from_name: formStates.email,
+            message: formStates.message
+        };
+
         try {
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: formStates.email,
-                    message: formStates.message
-                })
-            });
-            const data = await response.json();
-            alert(successfullResponse(JSON.stringify(data)));
+            const response = await emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY);
+            console.log("response", response);
+            setButtonText("Message Sent!");
             setFormStates({ email: "", message: "", loading: false });
+            setShowEmailError(false);
+            setShowMessageError(false);
+            setErrorMsg("");
         } catch (error) {
-            alert(errorResponse(JSON.stringify(error)));
+            console.log("Failed to send email!", error);
+            alert("Failed to send email!. You can email me at gargakshay034@gmail.com");
             setFormStates(prev => ({ ...prev, loading: false }));
         }
     }
@@ -58,6 +66,8 @@ const Form = () => {
             <Box sx={{ '& > :not(style)': { m: 1 }, display: 'flex', alignItems: 'flex-end' }}>
                 {!smallScreen && <EmailSvg />}
                 <TextField
+                    error={showEmailError}
+                    helperText={showEmailError ? errorMsg : ""}
                     id={styles.inputEmail}
                     label="Your Email"
                     variant="outlined"
@@ -65,22 +75,22 @@ const Form = () => {
                     value={formStates.email}
                     onChange={(e) => setFormStates(prev => ({ ...prev, email: e.target.value }))}
                     InputLabelProps={{
-                        style: { color: 'white' }
+                        style: { color: '#b7b7b7' }
                     }}
                     sx={{
                         '& .MuiOutlinedInput-root': {
                             '& fieldset': {
-                                borderColor: 'white',
+                                borderColor: '#b7b7b7',
                             },
                             '&:hover fieldset': {
-                                borderColor: 'white',
+                                borderColor: '#b7b7b7',
                             },
                             '&.Mui-focused fieldset': {
                                 borderColor: 'skyblue',
                             },
                         },
                         '& .MuiInputBase-input': {
-                            color: 'white',
+                            color: '#b7b7b7',
                         },
                     }}
                 />
@@ -88,6 +98,8 @@ const Form = () => {
             <Box sx={{ '& > :not(style)': { m: 1 }, display: 'flex', alignItems: 'flex-end' }}>
                 {!smallScreen && <MessageSvg />}
                 <TextField
+                    error={showMessageError}
+                    helperText={showMessageError ? errorMsg : ""}
                     id={styles.inputMsg}
                     label="Message"
                     variant="outlined"
@@ -97,22 +109,22 @@ const Form = () => {
                     value={formStates.message}
                     onChange={(e) => setFormStates(prev => ({ ...prev, message: e.target.value }))}
                     InputLabelProps={{
-                        style: { color: 'white' },
+                        style: { color: '#b7b7b7' },
                     }}
                     sx={{
                         '& .MuiOutlinedInput-root': {
                             '& fieldset': {
-                                borderColor: 'white',
+                                borderColor: '#b7b7b7',
                             },
                             '&:hover fieldset': {
-                                borderColor: 'white', 
+                                borderColor: '#b7b7b7',
                             },
                             '&.Mui-focused fieldset': {
-                                borderColor: 'skyblue', 
+                                borderColor: 'skyblue',
                             },
                         },
                         '& .MuiInputBase-input': {
-                            color: 'white', 
+                            color: '#b7b7b7',
                         },
                         marginTop: '8em',
                     }}
@@ -121,32 +133,26 @@ const Form = () => {
             <SendButton
                 submitForm={submitForm}
                 loading={formStates.loading}
+                text={buttonText}
             />
             {formStates.loading ? <div className={styles.waitingMsg}>It may take up to <span>5 seconds</span> to send !</div> : ""}
         </div>
     )
 }
 
-const successfullResponse = data => `The message has been successfully sent
-${data}`;
 
-const errorResponse = error => `The message could not be sent
-If you would like to contact me, please send an email to 125aryaaman@gmail.com
-${error}`;
-
-
-const SendButton = ({ loading, submitForm }) => (
-    <ClippedButton onClick={submitForm} color="skyblue" className={[styles.clippedButton, loading ? styles.disabled : ""].join(" ")}>
-        {loading ? <LoadingContent /> : <SendContent />}
+const SendButton = ({ loading, submitForm, text }) => (
+    <ClippedButton onClick={submitForm} color="skyblue" className={[styles.clippedButton, (loading || text === 'Message Sent!') ? styles.disabled : ""].join(" ")}>
+        {loading ? <LoadingContent /> : <SendContent text={text} />}
     </ClippedButton>
 );
 
-const SendContent = () => (
+const SendContent = ({ text }) => (
     <>
-        <svg className={styles.svgInline} aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        {(!smallScreen && text !== 'Message Sent!') && <svg className={styles.svgInline} aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path fill="currentColor" d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480V396.4c0-4 1.5-7.8 4.2-10.7L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path>
-        </svg>
-        Send Message
+        </svg>}
+        {text}
     </>
 );
 

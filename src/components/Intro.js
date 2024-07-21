@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-// import Me from '../assets/Images/profile-img.png'
+import Me from '../assets/Images/my-pic.png'
 import DecoderText from '../subComponents/DecoderText/DecoderText'
 import { introAnimatedText } from "../data/IntroData"
 import ScramblingText from "../subComponents/ScramblingText/ScramblingText"
@@ -53,6 +53,31 @@ const SubBox = styled.div`
     width: 50%;
     position: relative;
     display: flex;
+
+    .pic{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0%);
+        width: 100%;
+        height: auto;
+
+        @media (max-width: 50em) {
+            width: 70%;
+        }
+
+        @media (max-width: 40em) {
+            width: 80%;
+        }
+
+        @media (max-width: 30em) {
+            width: 90%;
+        }
+
+        @media (max-width: 20em) {
+            width: 80%;
+        }
+    }
 
     @media (max-width: 50em) {
         width: 100%;
@@ -132,6 +157,13 @@ const Intro = () => {
                 </Text>
             </SubBox>
             <SubBox>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1 }}
+                >
+                    <img className="pic" src={Me} alt="Profile Pic" />
+                </motion.div>
             </SubBox>
         </Box>
     )

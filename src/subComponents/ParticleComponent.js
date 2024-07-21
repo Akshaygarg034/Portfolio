@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ConfigAbout from "../config/particlesjs-config.json";
-import ConfigSkills from "../config/particlesjs-config-light.json";
+import ConfigStars from "../config/config-stars.json";
+import ConfigMolecules from "../config/config-molecules.json";
 import { useCallback } from "react";
 
 import Particles from "react-tsparticles";
@@ -18,11 +18,11 @@ const Box = styled.div`
 const ParticlesComponent = (props) => {
   let config;
   switch (props.type) {
-    case "about":
-      config = ConfigAbout;
+    case "contact":
+      config = ConfigStars;
       break;
-    case "skills":
-      config = ConfigSkills;
+    case "main":
+      config = ConfigMolecules;
       break;
     default:
       config = {};

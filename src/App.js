@@ -12,7 +12,7 @@ import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 const Main = React.lazy(() => import('./components/Main'));
 const Experience = React.lazy(() => import('./components/Experience/Experience'));
-const AboutPage = React.lazy(() => import('./components/AboutPage'));
+const ContactPage = React.lazy(() => import('./components/ContactPage'));
 const SkillsPage = React.lazy(() => import('./components/SkillsPage/SkillsPage'));
 const ProjectsPage = React.lazy(() => import('./components/ProjectsPage'));
 
@@ -33,7 +33,7 @@ function App() {
 
               <Route path="/" element={<Main loaded= {loaded} setLoaded = {setLoaded}/>} />
 
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
 
               <Route path="/projects" element={<ProjectsPage />} />
 
