@@ -6,7 +6,6 @@ import { AnimatePresence } from "framer-motion";
 import GlobalStyle from "./globalStyles";
 
 //Components
-import SoundBar from "./subComponents/SoundBar";
 import NotFound from "./components/NotFound/NotFound";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
@@ -27,7 +26,6 @@ function App() {
       <ThemeProvider theme={lightTheme}>
 
         <Suspense fallback={<FallbackComponent loaded= {loaded} setLoaded = {setLoaded}/>}>
-          <SoundBar />
           <AnimatePresence mode='wait'>
             <Routes key={location.pathname} location={location} >
 
