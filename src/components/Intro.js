@@ -59,23 +59,19 @@ const SubBox = styled.div`
         bottom: 0;
         left: 50%;
         transform: translate(-50%,0%);
-        width: 100%;
+        width: 90%;
         height: auto;
 
         @media (max-width: 50em) {
-            width: 70%;
+            width: 65%;
         }
 
         @media (max-width: 40em) {
-            width: 80%;
+            width: 75%;
         }
 
         @media (max-width: 30em) {
-            width: 90%;
-        }
-
-        @media (max-width: 20em) {
-            width: 80%;
+            width: 88%;
         }
     }
 
