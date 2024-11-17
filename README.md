@@ -24,11 +24,11 @@ You can view the live version of my portfolio at [https://akshay-garg-portfolio.
 
 ## Features
 
-- **Responsive Design**: Fully responsive design across all devices.
+- **Responsive Design**: Ensures seamless user experience across all devices, from desktops to mobiles.
 - **Smooth Animations**: Enhanced user experience with Framer Motion.
 - **Modern UI**: Built using Material-UI and Styled-Components for a sleek and consistent design.
-- **Dynamic Particle Effects**: Added visual appeal using React TSParticles.
-- **Email Integration**: Contact form powered by Email.js for direct communication.
+- **Dynamic Particle Effects**: Enhanced visuals with React TSParticles.
+- **Email Integration**: Users can contact me directly via the form, powered by Email.js for secure and efficient communication.
 - **Impressive Lighthouse Score**: Achieved a score above 90 in all parameters, ensuring performance, accessibility, best practices and seo.
 
 ![Portfolio Screenshot](https://res.cloudinary.com/dz1vsgxm5/image/upload/Portfolio/xvohieq2nhmp7hzso4w6)
@@ -65,19 +65,19 @@ To run this project locally, follow these steps:
 
 ## Technologies Used
 
-- Frontend Framework: ReactJS
+- **Frontend Framework**: ReactJS
 
-- Animations: Framer Motion, React TSParticles
+- **Animations**: Framer Motion, React TSParticles
 
-- UI Libraries: Material-UI, Styled-Components
+- **UI Libraries**: Material-UI, Styled-Components
 
-- Email Integration: Email.js
+- **Email Integration**: Email.js
 
 ## Contact
 
 If you have any questions, feedback, or would like to get in touch with me, feel free to reach out to me:
-- Email: [gargakshay034@gmail.com](gargakshay034@gmail.com)
-- Linkedin: [https://www.linkedin.com/in/akshay-garg-360281213](https://www.linkedin.com/in/akshay-garg-360281213/)
+- **Email**: [gargakshay034@gmail.com](gargakshay034@gmail.com)
+- **Linkedin**: [https://www.linkedin.com/in/akshay-garg-360281213](https://www.linkedin.com/in/akshay-garg-360281213/)
 
 Alternatively, You can use the contact form on my portfolio.
 
