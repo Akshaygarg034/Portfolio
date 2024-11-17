@@ -65,25 +65,6 @@ const SKILLS = styled(NavLink)`
         }
     }
 `
-const ABOUT = styled(NavLink)`
-    color: ${props => props.theme.text};
-    position: absolute;
-    top: 50%;
-    left: calc(1rem + 2vw);
-    transform: translate(-50%, -50%) rotate(-90deg) ;
-    text-decoration: none;
-    z-index:1;
-
-    h2{
-        @media (max-width: 40em) {
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 30em) {
-            font-size: 1em;
-        }
-    }
-`
 
 const BottomBar = styled.div`
     position: absolute;
@@ -152,7 +133,7 @@ const Main = ({ loaded, setLoaded }) => {
                             whileTap={{ scale: 0.9 }}
 
                         >
-                            Say hi..
+                            Contact
                         </motion.h2>
                     </Contact>
 
@@ -172,23 +153,6 @@ const Main = ({ loaded, setLoaded }) => {
                             Skills
                         </motion.h2>
                     </SKILLS>
-
-                    <ABOUT to="/about" loaded={+loaded}>
-                        <motion.h2
-                            initial={{
-                                y: -200,
-                                transition: { type: 'spring', duration: 1.5, delay: 1 }
-                            }}
-                            animate={{
-                                y: 0,
-                                transition: { type: 'spring', duration: 1.5, delay: 1 }
-                            }}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                        >
-                            About
-                        </motion.h2>
-                    </ABOUT>
 
                     <BottomBar>
                         <EXPERIENCE to="/experience" loaded={+loaded}>

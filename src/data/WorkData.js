@@ -10,4 +10,22 @@ export const Work = [
         demo:"https://www.google.com/",
         github:"https://www.google.com/",
     },
+    {
+        id:2,
+        name:"Name",
+        description:"It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
+        tags:["react","gsap","styledComponents"],
+        
+        demo:"https://www.google.com/",
+        github:"https://www.google.com/",
+    },
+    {
+        id:3,
+        name:"Name",
+        description:"It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
+        tags:["react","gsap","styledComponents"],
+        
+        demo:"https://www.google.com/",
+        github:"https://www.google.com/",
+    },
 ] 

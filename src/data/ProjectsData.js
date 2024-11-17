@@ -1,10 +1,34 @@
 export const projectsData = [
     {
         title: 'Title',
-        desciption: 'Build a platform that remotely runs and compiles user submitted code for a programming problem securely and judges if the code is correct/wrong',
+        desciption: 'Some description',
         tech: ['Nodejs', 'React', 'Docker', 'Redis', 'MongoDB', 'Expressjs', 'JWT'],
         github: 'github',
         external: 'external',
-        image: 'image url'
-    }
+        image: 'https://miro.medium.com/v2/resize:fit:20864/1*oM1GuZ0oC3_9v1GfKC2Egg.jpeg'
+    },
+    {
+        title: 'Title',
+        desciption: 'Some description',
+        tech: ['Nodejs', 'React', 'Docker', 'Redis', 'MongoDB', 'Expressjs', 'JWT'],
+        github: 'github',
+        external: 'external',
+        image: 'https://miro.medium.com/v2/resize:fit:20864/1*oM1GuZ0oC3_9v1GfKC2Egg.jpeg'
+    },
+    {
+        title: 'Title',
+        desciption: 'Some description',
+        tech: ['Nodejs', 'React', 'Docker', 'Redis', 'MongoDB', 'Expressjs', 'JWT'],
+        github: 'github',
+        external: 'external',
+        image: 'https://miro.medium.com/v2/resize:fit:20864/1*oM1GuZ0oC3_9v1GfKC2Egg.jpeg'
+    },
+    {
+        title: 'Title',
+        desciption: 'Some description',
+        tech: ['Nodejs', 'React', 'Docker', 'Redis', 'MongoDB', 'Expressjs', 'JWT'],
+        github: 'github',
+        external: 'external',
+        image: 'https://miro.medium.com/v2/resize:fit:20864/1*oM1GuZ0oC3_9v1GfKC2Egg.jpeg'
+    },
 ];
