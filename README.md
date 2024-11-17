@@ -28,6 +28,7 @@ You can view the live version of my portfolio at [https://akshay-garg-portfolio.
 - **Smooth Animations**: Enhanced user experience with Framer Motion.
 - **Modern UI**: Built using Material-UI and Styled-Components for a sleek and consistent design.
 - **Dynamic Particle Effects**: Enhanced visuals with React TSParticles.
+- **Dark and Light Mode**: Toggle between dark and light themes for a personalized viewing experience.
 - **Email Integration**: Users can contact me directly via the form, powered by Email.js for secure and efficient communication.
 - **Impressive Lighthouse Score**: Achieved a score above 90 in all parameters, ensuring performance, accessibility, best practices and seo.
 
